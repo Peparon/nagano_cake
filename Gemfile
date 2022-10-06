@@ -72,3 +72,5 @@ gem 'pry-byebug', group: :development
 
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
+
+gem 'kaminari','~> 1.2.1'
