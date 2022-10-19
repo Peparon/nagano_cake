@@ -1,0 +1,6 @@
+<% if ship_city.errors.any? %>
+      <%= ship_city.errors.count %>prohibited this obj from being saved:
+        <% ship_city.errors.full_messages.each do |error| %>
+      <%= error %>
+      <% end %>
+<% end %>

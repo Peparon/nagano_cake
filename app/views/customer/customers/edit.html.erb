@@ -1,0 +1,62 @@
+  <div class="container">
+  <div class="col-lg-10 offset-lg-1">
+    <div class="row">
+      <div class="col-lg-5 text-center mb-3">
+        <h2 class="head-line title_h2 text-center">登録情報編集</h2>
+      </div>
+    </div>
+
+    <%= form_with(model:@customer, url:customer_path, local: true ,method: :put) do |f| %>
+
+      <div class="row field">
+        <%= f.label :"名前", class: "col-lg-2" %>
+        <%= f.label :"(姓)", class: "col-lg-1 text-right" %>
+        <%= f.text_field :last_name, class:"col-xs-2" %>
+        <%= f.label :"(名)", class: "col-lg-1 text-right" %>
+        <%= f.text_field :first_name, class:"col-xs-2" %>
+      </div>
+
+      <div class="row field">
+        <%= f.label :"フリガナ", class: "col-lg-2" %>
+        <%= f.label :"(セイ)", class: "col-lg-1 text-right" %>
+        <%= f.text_field :last_name_kana, class:"col-xs-2"%>
+        <%= f.label :"(メイ)", class: "col-lg-1 text-right" %>
+        <%= f.text_field :first_name_kana, class:"col-xs-2" %>
+      </div>
+
+      <div class="row field">
+        <%= f.label :"メールアドレス", class: "col-lg-2" %>
+        <div class="col-lg-1"></div>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"col-xs-2" %>
+      </div>
+
+      <div class="row field">
+        <%= f.label :"郵便番号(ハイフンなし)", class: "col-lg-3" %>
+        <%= f.text_field :postcode, class:"col-xs-2" %>
+      </div>
+
+      <div class="row field">
+        <%= f.label :"住所", class: "col-lg-2" %>
+        <div class="col-lg-1"></div>
+        <%= f.text_field :address, class:"col-xs-5" %>
+      </div>
+
+      <div class="row field">
+        <%= f.label :"電話番号(ハイフンなし)", class: "col-lg-3" %>
+        <%= f.text_field :phone_number, class:"col-xs-2" %>
+      </div>
+
+
+      <div>
+        <div class="col-lg-5 text-center">
+          <%= f.submit "編集内容を保存する", class: "btn btn-primary" %>
+          <%= link_to '退会する', quit_customer_path, class: "glyphicon glyphicon-tint btn btn-danger"%>
+        </div>
+      </div>
+
+
+
+    <% end %>
+      <%#= link_to "戻る", customer_path(@customer.id), class: "btn btn-primary pull-right" %>
+  </div>
+</div>

@@ -40,7 +40,7 @@ Rails.application.routes.draw do
         patch "withdraw"
       end
     end
-    resources :ship_cities,only: [:index,:create,:edit,:update,:destroy]
+    resources :addresses,only: [:index,:create,:edit,:update,:destroy]
     resources :cart_items
     resources :orders,only: [:index, :new, :create, :show]
   end

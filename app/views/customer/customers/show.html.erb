@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <h1 class="head-line title_h2 text-center">マイページ</h1>
+    <div class="text-left">
+      <span>登録情報</span>
+      <%= link_to "編集する", edit_customer_path(@customer.id), class: "btn btn-primary" %>
+      <%= link_to "パスワードの変更", edit_customer_registration_path(@customer.id), class: "btn btn-primary" %>
+    </div>
+    <table class="my-page-table table">
+      <tbody>
+        <tr>
+          <td class="active col-xs-3">氏名</td>
+          <td><%= (@customer.last_name + @customer.first_name) %></td>
+        </tr>
+        <tr>
+          <td class="active">カナ</td>
+          <td><%= (@customer.last_name_kana + @customer.first_name_kana) %></td>
+        </tr>
+        <tr>
+          <td class="active">郵便番号</td>
+          <td><%= @customer.postcode.to_s.insert(3, "-") %></td>
+        </tr>
+        <tr>
+          <td class="active">住所</td>
+          <td><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <td class="active">電話番号</td>
+          <td><%= @customer.phone_number %> </td>
+        </tr>
+        <tr>
+          <td class="active">メールアドレス</td>
+          <td><%= @customer.email %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <b>配送先</b>
+    </div>
+    <div>
+      <%= link_to "一覧を見る", addresses_path, class: "btn btn-primary" %>
+    </div>
+    <div>
+      <b>注文履歴</b>
+    </div>
+    <div>
+      <%= link_to"一覧を見る",orders_path,class:"btn btn-primary" %>
+    </div>
+  </div>
+</div>

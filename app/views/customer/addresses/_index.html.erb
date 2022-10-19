@@ -1,0 +1,26 @@
+<div class="row">
+ <div class="col-xs-8">
+ <table class="table ship-city-table">
+  <thead>
+    <tr>
+     <th class="active">郵便番号</th>
+     <th class="active">住所</th>
+     <th class="active">宛名</th>
+     <th class="active", colspan="2"></th>
+    </tr>
+  </thead>
+   <tbody>
+      <% addresses.each do |ship_city| %>
+    <tr>
+      <td><%= ship_city.postcode.to_s.insert(3, "-") %></td>
+      <td class="text-left"><%= ship_city.address %></td>
+      <td class="text-left"><%= ship_city.name %></td>
+      <td class="text-center"><%= link_to "編集する", edit_ship_city_path(ship_city), class: "btn btn-primary" %>
+        <%= link_to "削除する", ship_city_path(ship_city), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure?"}, remote:true %>
+      </td>
+    </tr>
+    <% end %>
+   </tbody>
+</table>
+ </div>
+</div>

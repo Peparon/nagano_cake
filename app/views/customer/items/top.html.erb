@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'admin/genres/genre_sidebar', genres: @genres  %>
+    </div>
+
+    <div class="col-md-9">
+      <div class="top-box">
+        <p class="top-text">
+          ようこそ、NaganoCakeへ！<br>
+          このサイトは、ケーキ販売のECサイトになります。<br>
+          会員でない方も商品の閲覧はできますが、<br>
+          購入には会員登録が必要になります。<br>
+        </p>
+      </div>
+
+      <div class="recommend-title">
+        <h3>おすすめ商品</h3>
+      </div>
+      <div class="recommend-container">
+        <% @random.each do |item| %>
+          <div class="recommend-item">
+            <% if item.genre.is_active == true %>
+  		        <% if item.is_active == true %>
+            <%= link_to item_path(item) do %>
+              <%= attachment_image_tag item, :image, fallback: 'no_image.jpg', size:'180x130' %><br>
+            <% end %>
+            <p><%= item.name %></p>
+            <p>¥<%= (item.price*1.1).floor.to_s(:delimited)%>(税込)</p>
+        <% end %>
+        <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="recommend-more"><%= link_to "もっとみる>>", items_path %></div>
+    </div>
+  </div>
+</div>
