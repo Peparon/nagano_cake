@@ -1,0 +1,6 @@
+<% if genre.errors.any? %>
+  <%= genre.errors.count %>prohibited this obj from being saved:
+  <% genre.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>

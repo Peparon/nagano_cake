@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="genre-head">ジャンル一覧・追加</h3>
+
+      <%= render 'genre_errors', genre: @genre %>
+      <%= form_with model: @genre, url: admin_genres_path do |f| %>
+      <div>
+          <%= f.label :ジャンル %>
+          <%= f.text_field :name %>
+          <%= f.radio_button :is_active, :true %>
+          <%= f.label :is_active, "有効"%>
+          <%= f.radio_button :is_active, :false %>
+          <%= f.label :is_active, "無効"%>
+          <%= f.submit "追加", class: "btn btn-primary genre_btn" %>
+      </div>
+      <% end %>
+
+      <table class='table genre-table'>
+        <thead>
+          <tr>
+            <th class="active col-xs-6">ジャンル</th>
+            <th class="active col-xs-2">状態</th>
+            <th class="active col-xs-3"></th>
+          </tr>
+        </thead>
+        <tbody class="genre_area">
+        <%= render 'genre_index', genres: @genres %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
