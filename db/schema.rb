@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2022_07_13_081259) do
   create_table "addresses", force: :cascade do |t|
     t.integer "customer_id"
     t.string "name"
-    t.string "postcode"
+    t.string "post_code"
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2022_07_13_081259) do
     t.string "first_name"
     t.string "last_name_kana"
     t.string "first_name_kana"
-    t.string "postcode"
+    t.string "post_code"
     t.string "address"
     t.string "phone_number"
     t.boolean "is_deleted", default: false, null: false
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2022_07_13_081259) do
     t.integer "payment", default: 0
     t.integer "status", default: 0
     t.string "name"
-    t.string "postcode"
+    t.string "post_code"
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
