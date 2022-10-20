@@ -1,0 +1,36 @@
+<div class="container">
+  <h3>注文履歴一覧</h3>
+  <table class="order-table table">
+    <thead>
+      <tr>
+        <th>注文日</th>
+        <th>配送先</th>
+        <th>注文商品</th>
+        <th>支払金額</th>
+        <th>ステータス</th>
+        <th>注文詳細</th>
+      </tr>
+    </thead>
+    <% @orders.each do |order| %>
+      <tbody>
+        <tr>
+          <td><%= order.created_at.to_s(:datetime_jp) %></td>
+          <td>
+            <%= order.postcode %><br/>
+            <%= order.address %><br/>
+            <%= order.name %>
+          </td>
+          <td>
+            <% order.order_details.each do |order_detail| %>
+              <%= order_detail.item.name %>
+            <% end %>
+          </td>
+          <td><%= "#{order.total_fee.to_s(:delimited)}" %>円</td>
+          <td><%= order.status %></td>
+          <td><%= link_to '表示する', order_path(order.id) %></td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+    <%= paginate @orders %>
+</div>
