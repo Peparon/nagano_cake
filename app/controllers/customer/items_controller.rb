@@ -1,7 +1,8 @@
 class Customer::ItemsController < ApplicationController
+
   def top
     @genres = Genre.where(is_active: true)
-    @items = item.all
+    @items = item.count
     @random = item.order("RANDOM()").limit(4)
   end
 
@@ -25,7 +26,7 @@ class Customer::ItemsController < ApplicationController
   end
 
   private
-  
+
 	def params_item
 		parmas.require(:item).permit(:image ,:name )
 	end

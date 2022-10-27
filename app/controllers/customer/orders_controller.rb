@@ -16,15 +16,15 @@ class Customer::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     if @order.save!
-      @cart_products = current_customer.cart_products
-      @cart_products.each do |cart_product|
+      @cart_items = current_customer.cart_items
+      @cart_items.each do |cart_item|
         order_detail = OrderDetail.new(order_id: @order.id)
-        order_detail.price = cart_product.product.price
-        order_detail.amount = cart_product.amount
-        order_detail.product_id = cart_product.product_id
+        order_detail.price = cart_item.item.price
+        order_detail.amount = cart_item.amount
+        order_detail.item_id = cart_item.item_id
         order_detail.save!
       end
-      @cart_products.destroy_all
+      @cart_items.destroy_all
       redirect_to orders_thanks_path
     else
       render "new"
@@ -37,11 +37,11 @@ class Customer::OrdersController < ApplicationController
   end
 
   def confirm
-    @cart_products = current_customer.cart_products
+    @cart_items = current_customer.cart_items
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.payment = params[:order][:payment]
-    @total_price = current_customer.cart_products.cart_products_total_price(@cart_products)
+    @total_price = current_customer.cart_items.cart_items_total_price(@cart_items)
     @order.shipping = 800
 
     if params[:order][:address_option] == "0"

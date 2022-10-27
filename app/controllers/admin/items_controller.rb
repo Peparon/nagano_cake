@@ -10,9 +10,9 @@ class Admin::ItemsController < ApplicationController
     end
     
     def create
-        @item = Item.new(product_params)
+        @item = Item.new(item_params)
         if @item.save
-            redirect_to admin_item_path(@item), notice: 'Product was successfully created'
+            redirect_to admin_item_path(@item), notice: 'Item was successfully created'
         else
             render "new"
         end
@@ -33,7 +33,7 @@ class Admin::ItemsController < ApplicationController
     def update
         @item = Item.find(params[:id])
         if @item.update(item_params)
-            redirect_to admin_item_path(@item), notice: 'Product was successfully updated'
+            redirect_to admin_item_path(@item), notice: 'Item was successfully updated'
         else
             render "show"
         end
