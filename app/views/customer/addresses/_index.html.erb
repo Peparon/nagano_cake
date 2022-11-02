@@ -12,7 +12,7 @@
    <tbody>
       <% addresses.each do |ship_city| %>
     <tr>
-      <td><%= ship_city.postcode.to_s.insert(3, "-") %></td>
+      <td><%= ship_city.post_code.to_s.insert(3, "-") %></td>
       <td class="text-left"><%= ship_city.address %></td>
       <td class="text-left"><%= ship_city.name %></td>
       <td class="text-center"><%= link_to "編集する", edit_ship_city_path(ship_city), class: "btn btn-primary" %>

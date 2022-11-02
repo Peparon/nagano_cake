@@ -15,7 +15,7 @@
       <div>
           <p>
           <strong class="col-xs-2">配送先</strong>
-          <%= (@order.customer.postcode).to_s.insert(3, "-") %>
+          <%= (@order.customer.post_code).to_s.insert(3, "-") %>
           <%= @order.customer.address %>
           </p>
       </div>

@@ -13,7 +13,7 @@
       <%= f.radio_button :address_option, 0, checked: "checked" %>
       <%= f.label :address, "ご自身の住所" %>
       <br>
-      <%= @customer.postcode.to_s.insert(3, "-") %><br/>
+      <%= @customer.post_code.to_s.insert(3, "-") %><br/>
       <%= @customer.address %><br/>
       <%= @customer.last_name %><%= @customer.first_name %>
       <br>
@@ -30,7 +30,7 @@
             <%= f.label :shipping, "郵便番号(ハイフンなし）" %>
           </div>
           <div>
-            <%= f.text_field :postcode,class:"col-lg-2" %>
+            <%= f.text_field :post_code,class:"col-lg-2" %>
           </div>
       </div>
       </br>

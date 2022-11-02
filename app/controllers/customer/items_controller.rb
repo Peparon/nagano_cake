@@ -2,8 +2,8 @@ class Customer::ItemsController < ApplicationController
 
   def top
     @genres = Genre.where(is_active: true)
-    @items = item.count
-    @random = item.order("RANDOM()").limit(4)
+    @items = Item.all
+    @random = Item.order("RANDOM()").limit(4)
   end
 
   def about
