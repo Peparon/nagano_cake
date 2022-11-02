@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-xs-8">
   
-      <%= form_with model: @customer, url: customer_registration_path, local: true do |f| %>
+      <%= form_with model: @customer, url:customer_registration_path, local: true do |f| %>
         <%= render "customers/shared/error_messages", resource: resource %>
   
         <div class="row form-group">
