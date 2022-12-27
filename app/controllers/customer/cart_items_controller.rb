@@ -8,7 +8,7 @@ class Customer::CartItemsController < ApplicationController
   end
 
   def update
-    @cart_item = CartItem.find(params[:id])
+    @cart_item = CartItem.where(params[:id])
     if params[:cart_item][:amount] == "0"
       @cart_item.destroy
       redirect_to cart_items_path
@@ -43,8 +43,7 @@ class Customer::CartItemsController < ApplicationController
     redirect_to cart_items_path
   end
 
-
   def params_cart_item
-  params.require(:cart_item).permit(:amount, :item_id)
+    params.require(:cart_item).permit(:amount, :item_id)
   end
 end

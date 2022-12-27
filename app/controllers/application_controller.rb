@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
       if customer_signed_in?
           root_path
       else
-        admin_products_top_path
+        admin_items_top_path
       end
     end
 
