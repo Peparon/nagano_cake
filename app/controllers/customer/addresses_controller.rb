@@ -4,14 +4,14 @@ class Customer::AddressesController < ApplicationController
 
  def index
   @addresses = current_customer.addresses
-  @ship_city = ShipCity.new
+  @address = Address.new
  end
 
  def create
-  @ship_city = ShipCity.new(ship_city_params)
-  @ship_city.customer_id = current_customer.id
-  if @ship_city.save
-   flash[:notice] = "You have created Shipping address successfully."#英語に統一
+  @address = Address.new(address_params)
+  @address.customer_id = current_customer.id
+  if @address.save
+   flash[:notice] = "You have created Shipping address successfully."
    redirect_to addresses_path
   else
    @addresses = current_customer.addresses
@@ -20,12 +20,12 @@ class Customer::AddressesController < ApplicationController
  end
 
  def edit
-  @ship_city = ShipCity.find(params[:id])
+  @address = Address.find(params[:id])
  end
 
  def update
-  @ship_city = ShipCity.find(params[:id])
-   if @ship_city.update(ship_city_params)
+  @address = Address.find(params[:id])
+   if @address.update(address_params)
      flash[:notice] = "address was successfully updated"
      redirect_to addresses_path
    else
@@ -34,15 +34,15 @@ class Customer::AddressesController < ApplicationController
  end
 
  def destroy
-  @ship_city = ShipCity.find(params[:id])
-  @ship_city.destroy
-  @ship_city = current_customer.addresses
+  @address = Address.find(params[:id])
+  @address.destroy
+  @address = current_customer.addresses
   flash[:notice] = "address was successfully deleted"
   redirect_to addresses_path
  end
 
  private
- def ship_city_params
-  params.require(:ship_city).permit(:postcode, :address, :name)
+ def address_params
+  params.require(:address).permit(:post_code, :address, :name)
  end
 end

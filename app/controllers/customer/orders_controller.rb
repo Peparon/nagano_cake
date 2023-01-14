@@ -5,7 +5,6 @@ class Customer::OrdersController < ApplicationController
     @orders = current_customer.orders.all.page(params[:page]).per(6).order('created_at DESC')
   end
 
-
   def new
     @order = Order.new
     @customer = current_customer
@@ -45,26 +44,26 @@ class Customer::OrdersController < ApplicationController
     @order.shipping = 800
 
     if params[:order][:address_option] == "0"
-      @order.postcode = current_customer.postcode
+      @order.post_code = current_customer.post_code
       @order.address = current_customer.address
       @order.name = current_customer.last_name + " " + current_customer.first_name
       render 'confirm'
     elsif params[:order][:address_option] == "1"
-      @ship_city = ShipCity.find(params[:order][:id])
-      @order.postcode = @ship_city.postcode
-      @order.address = @ship_city.address
-      @order.name = @ship_city.name
+      @address = Address.find(params[:order][:id])
+      @order.post_code = @address.post_code
+      @order.address = @address.address
+      @order.name = @address.name
       render 'confirm'
     elsif params[:order][:address_option] == "2"
-      @ship_city = current_customer.addresses.new
-      @ship_city.address = params[:order][:address]
-      @ship_city.name = params[:order][:name]
-      @ship_city.postcode = params[:order][:postcode]
-      @ship_city.customer_id = current_customer.id
-      if @ship_city.save
-      @order.postcode = @ship_city.postcode
-      @order.name = @ship_city.name
-      @order.address = @ship_city.address
+      @address = current_customer.addresses.new
+      @address.address = params[:order][:address]
+      @address.name = params[:order][:name]
+      @address.post_code = params[:order][:post_code]
+      @address.customer_id = current_customer.id
+      if @address.save
+      @order.post_code = @address.post_code
+      @order.name = @address.name
+      @order.address = @address.address
       else
        render 'new'
       end
@@ -77,10 +76,10 @@ class Customer::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:payment, :postcode, :address, :name, :shipping, :total_fee)
+    params.require(:order).permit(:payment, :post_code, :address, :name, :shipping, :total_payment)
   end
 
-  def ship_city_params
-    params.require(:ship_city).permit(:customer_id, :postcode, :address, :name)
+  def address_params
+    params.require(:address).permit(:customer_id, :post_code, :address, :name)
   end
 end

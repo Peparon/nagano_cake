@@ -73,7 +73,7 @@
     <div>
       <p>
         <strong class="col-xs-3">商品合計</strong>
-         ¥<%= (@order.total_fee - @order.shipping).to_s(:delimited)%>
+         ¥<%= (@order.total_payment - @order.shipping).to_s(:delimited)%>
       </p>
     </div>
     <br>
@@ -89,7 +89,7 @@
     <div>
       <p>
         <strong class="col-xs-4">請求金額合計</strong>
-        ¥<%= @order.total_fee.to_s(:delimited) %>
+        ¥<%= @order.total_payment.to_s(:delimited) %>
       </p>
     </div>
     <br>

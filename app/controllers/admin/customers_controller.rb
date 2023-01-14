@@ -6,17 +6,17 @@ class Admin::CustomersController < ApplicationController
   end
 
   def show
-    @customers = Customer.find(params[:id])
+    @customer = Customer.find(params[:id])
   end
 
   def edit
-    @customers = Customer.find(params[:id])
+    @customer = Customer.find(params[:id])
   end
 
   def update
-    @customers = Customer.find(params[:id])
+    @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
-      redirect_to admin_customer_path, notice: 'You have updated book successfully'
+      redirect_to admin_customer_path, notice: 'Customer was successfully updated'
     else
       render "edit"
     end
@@ -25,7 +25,7 @@ class Admin::CustomersController < ApplicationController
 	private
 
 	def customer_params
-	  params.require(:customer).permit(:first_name,:last_name,:first_name_kana,:last_name_kana,:postcode,:address,:phone_number,:email,:is_deleted)
+	  params.require(:customer).permit(:last_name, :first_name, :first_name_kana, :last_name_kana, :post_code, :address, :phone_number, :email, :is_deleted)
 	end
 
 end

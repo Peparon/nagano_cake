@@ -47,7 +47,7 @@
               <td class="confirm-td">請求金額</td>
               <td>
                 ¥<%= (@total_price + 800).to_s(:delimited) %>円
-                <%= f.hidden_field :total_fee, :value => (@total_price + 800) %>
+                <%= f.hidden_field :total_payment, :value => (@total_price + 800) %>
               </td>
             </tr>
           </tbody>
@@ -62,7 +62,7 @@
       <%= @order.post_code.to_s.insert(3, "-") %></br>
       <%= f.hidden_field :post_code, :value => @order.post_code %>
       <%= @order.address %></br>
-      <%= f.hidden_field :address, :value => @order.city %>
+      <%= f.hidden_field :address, :value => @order.address %>
       <%= @order.name %></br>
       <%= f.hidden_field :name, :value => @order.name %>
 

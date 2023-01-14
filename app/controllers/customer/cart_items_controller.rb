@@ -3,7 +3,7 @@ class Customer::CartItemsController < ApplicationController
 
   def index
     @cart_items = current_customer.cart_items
-    @cart_items = CartItem.new
+    @cart_item = CartItem.new
     @total_price = current_customer.cart_items.cart_items_total_price(@cart_items)
   end
 

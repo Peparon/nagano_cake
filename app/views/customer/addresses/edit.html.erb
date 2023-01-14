@@ -1,9 +1,8 @@
 <div class="container">
-<div class="row">
-  <!--<div class="col-xs-12">-->
-    <%= render 'customer/addresses/error', ship_city: @ship_city %>
+  <div class="row">
+    <%= render 'customer/addresses/error', address: @address %>
     <h2 class="head-line text-center title_h2">配送先編集</h2>
-    <%= form_with model:@ship_city, url:ship_city_path, local:true do |f| %>
+    <%= form_with model:@address, url:address_path, local:true do |f| %>
 
       <div class="col-xs-10">
           <div class="form-group col-xs-12">
@@ -23,6 +22,5 @@
             <%= f.submit '登録する',class: "col-xs-2 pull-right btn-primary" %>
         <% end %>
       </div>
-  <!--</div>-->
-</div>
+  </div>
 </div>

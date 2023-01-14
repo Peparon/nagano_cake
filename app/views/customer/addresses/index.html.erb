@@ -5,8 +5,8 @@
         <h2 class="bg-origin">配送先編集/一覧</h2>
     </div>
 </div>
-      <%= render 'customer/addresses/error', ship_city: @ship_city %>
-        <%= form_with model:@ship_city,url:addresses_path do |f| %>
+      <%= render 'customer/addresses/error', address: @address %>
+        <%= form_with model:@address,url:addresses_path do |f| %>
 
         <div class="row">
           <div class="col-xs-3">
