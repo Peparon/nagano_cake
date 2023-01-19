@@ -1,5 +1,5 @@
 class Customer::CustomersController < ApplicationController
-  
+
   before_action :authenticate_customer!
 
     def edit
@@ -30,7 +30,7 @@ class Customer::CustomersController < ApplicationController
         @customer.update(is_deleted: true)
         reset_session
         flash[:notice] = "Thank you for the good rating. We hope to see you again."
-　　　　redirect_to root_path
+        redirect_to root_path
     end
 
 
