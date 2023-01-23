@@ -2,3 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.customer-id {
+  margin-right: 20px;
+}
+
+.customer-table th,
+.customer-table td {
+  border-style: none;
+}
+
+.customer-show-table th,
+.customer-show-table td {
+  border-style: none;
+}
+
+
+.customer-show-table {
+  background-color: none;
+}

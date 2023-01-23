@@ -2,3 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.item-table th,
+.item-table td{
+  border-style: none;
+}
+
+.order-table th,
+.order-table td {
+  border-style: none;
+}
+
+.order-show-table th,
+.order-show-table td {
+  border-style: none;
+}

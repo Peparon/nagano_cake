@@ -7,7 +7,7 @@
         <%= render "customers/shared/error_messages", resource: resource %>
   
         <div class="row form-group">
-          <%= f.label :名前, class: "col-xs-2" %>
+          <%= f.label :名前, class: "col-lg-3" %>
           <%= f.label :"(姓)", class: "col-xs-2" %>
           <%= f.text_field :last_name, autofocus: true, class: "col-lg-3" %>
           <%= f.label :"(名)", class: "col-xs-2" %>
@@ -15,10 +15,10 @@
         </div>
   
         <div class="row form-group">
-            <%= f.label :フリガナ, class: "col-xs-2" %>
-            <%= f.label :"(セイ)", class: "col-lg-2" %>
+            <%= f.label :フリガナ, class: "col-lg-3" %>
+            <%= f.label :"(セイ)", class: "col-xs-2" %>
             <%= f.text_field :last_name_kana, autofocus: true, class: "col-lg-3" %>
-            <%= f.label :"(メイ)", class: "col-lg-2" %>
+            <%= f.label :"(メイ)", class: "col-xs-2" %>
             <%= f.text_field :first_name_kana, autofocus: true, class: "col-lg-3" %>
         </div>
   

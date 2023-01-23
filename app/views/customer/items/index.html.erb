@@ -8,10 +8,10 @@
         <% if params[:genre_id] %>
           <%= @genre.name %>
         <% else %>
-          すべての商品
+          商品一覧
         <% end %>
+        <strong><font size="3">(全<%= @items.count %>件)</font></strong>
       </h1>
-      <strong> 全<%= @items.count %>件 </strong>
       <div class="items-list">
         <% @items.each do |item| %>
           <% if item.genre.is_active == true %>
