@@ -3,13 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .top-text {
-  background-color: #FF9872;
+  background-color: #007bff40;
   text-align: center;
   border: solid 3px #FF4F02;
   border-radius: 10px;
   padding-top: 6px;
-  width: 400px;
-  height: 100px;
+  width: 500px;
+  height: 120px;
   margin: 70px auto;
 }
 
@@ -73,7 +73,7 @@
 .items-list {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  // flex-direction: row;
 }
 
 .items-list-item {
