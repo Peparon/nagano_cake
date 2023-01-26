@@ -41,6 +41,37 @@ header {
   background-color: #ff00df94;
 }
 
+.header-logo {
+  position: absolute;
+  top: 50px;
+}
+
+.header-name {
+  position: absolute;
+  top: 50px;
+}
+
+.header-tag {
+  display: flex;
+}
+
+.right {
+  text-align: right;
+}
+
+.box {
+  margin-bottom: 50px;
+}
+
+// .ul{
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+
+// .li{
+//   width: 25%;
+// } 
+
 .nav-list {
   margin-bottom: 0px;
 }

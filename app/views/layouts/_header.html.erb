@@ -1,52 +1,52 @@
 <header>
-  <div class="container">
-   <div class="row">
-    <!--ロゴ -->
-    <!--<div class="col-md-4">-->
-     <nav class="nav navbar-nav navbar-left">
-      <% if admin_signed_in? %>
-       <%= link_to "Nagano Cake", admin_items_top_path, class: "fas fa-birthday-cake" %>
-      <% else %>
-       <%= link_to "Nagano Cake", root_path, class: "fas fa-birthday-cake" %>
-      <% end %>
-     <!--</nav>-->
-    </div>
-    <div class="col-md-4">
-     <ul class="nav-item nav navbar-nav navbar-right">
-      <% if customer_signed_in? %>
-       <!--顧客　-->
-       <li class="customer-name", "col-md-4">
-        ようこそ、<%= current_customer.first_name %>さん！
-       </li>
-       <li class="col-md-4"><%= link_to "マイページ", customer_path(current_customer) %></li>
-       <li class="col-md-4"><%= link_to "商品一覧", items_path  %></li>
-       <li class="col-md-4"><%= link_to "カート", cart_items_path %></li>
-       <li class="col-md-4"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
-       <form class="d-flex" role="layouts/search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="layouts/search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-       </form>
-      <% elsif admin_signed_in? %>     
-       <!--管理者 -->
-       <li><%= link_to "商品一覧", admin_items_path %></li>
-       <li><%= link_to "会員一覧", admin_customers_path %></li>
-       <li><%= link_to "注文履歴一覧", admin_orders_path %></li>
-       <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
-       <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-       <form class="d-flex" role="layouts/search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="layouts/search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-       </form>
-      <% else %>
-       <!--ログインなし　-->
-       <li><%= link_to "about", about_path %></li>
-       <li><%= link_to "商品一覧", items_path %> </li>
-       <li><%= link_to "新規登録", new_customer_registration_path %></li>
-       <li><%= link_to "ログイン", new_customer_session_path %></li>
-      <% end %>
-     </ul>
-    </div>
-   </nav>
+ <div class="container list-unstyled">
+  <div class="row">
+   <div class="col-md-4">
+    <!--ロゴ-->
+    <nav class="nav navbar-nav navbar-left">
+     <% if admin_signed_in? %>
+      <%= link_to "Nagano Cake", admin_items_top_path, class: "fas fa-birthday-cake" %>
+     <% else %>
+      <%= link_to "Nagano Cake", root_path, class: "fas fa-birthday-cake" %>
+     <% end %>
+    </nav>
+   </div>
+
+     <% if customer_signed_in? %>
+     <div class="col-md-4">
+      <!--カスタマー-->
+      <li class="customer-name">
+       ようこそ、<%= current_customer.first_name %>さん！
+      </li>
+     </div>
+   <div class="col-md-4">
+    <ul class="nav-item nav navbar navbar-right">
+       <li><%= link_to "マイページ", customer_path(current_customer) %></li>
+       <li><%= link_to "商品一覧", items_path  %></li>
+       <li><%= link_to "カート", cart_items_path %></li>
+       <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
+     <% elsif admin_signed_in? %>
+      <!--管理者-->
+      <li><%= link_to "商品一覧", admin_items_path %></li>
+      <li><%= link_to "会員一覧", admin_customers_path %></li>
+      <li><%= link_to "注文履歴一覧", admin_orders_path %></li>
+      <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
+      <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+     <% else %>
+      <!--ログアウト時-->
+      <li><%= link_to "about", about_path %></li>
+      <li><%= link_to "商品一覧", items_path %></li>
+      <li><%= link_to "新規登録", new_customer_registration_path %></li>
+      <li><%= link_to "ログイン", new_customer_session_path %></li>
+     <% end %>
+    </ul>
+   </div>
+  </div>
+  <div class="row">
+     <form class="d-flex ml-auto" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+     </form>
   </div>
  </div>
 </header>
